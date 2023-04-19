@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: staging
+    database: lol-data-project-383712
+    schema: lol
+
+    tables:
+        - name: match_data_raw
