@@ -1,8 +1,8 @@
-{{ config(materialized='table') }}
+{{ config(materialized='view') }}
 
 select
     -- identifiers
-    {{ dbt_utils.surrogate_key(['gameId', 'summonerName']) }} as game_id,
+    {{ dbt_utils.surrogate_key(['gameId', 'summonerName']) }} as unique_id,
     cast(gameId as integer) as gameId,
     cast(gameMode as string) as game_mode,
     cast(gameType as string) as game_type,
@@ -69,7 +69,7 @@ from {{ source('staging', 'match_data_raw') }}
 
 
 -- dbt build --m <model.sql> --var 'is_test_run: false'
-{% if var('is_test_run', default=true) %}
+{% if var('is_test_run', default=false) %}
 
   limit 100
 

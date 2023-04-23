@@ -35,3 +35,6 @@ models:
   lol_match_data:
     # Applies to all files under models/example/
 
+vars:
+    dbt_date_dispatch_list: [dbt_utils]
+    "dbt_date:time_zone": "America/Los_Angeles"
