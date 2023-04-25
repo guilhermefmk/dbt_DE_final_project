@@ -7,4 +7,3 @@ SELECT
     ELSE 'sim'
   END AS delete_case
 FROM {{ ref('row_numbers') }}
-where delete_case = 'nao'
