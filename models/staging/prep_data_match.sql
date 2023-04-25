@@ -62,7 +62,7 @@ select
     wardsKilled,
     wardsPlaced,
     win,
-    timestamp as ingestion_date
+    timestamp as ingestion_date,
 from {{ ref('stg_data_match') }}
 
 
